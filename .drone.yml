@@ -4,3 +4,6 @@ pipeline:
     commands:
       - yarn
       - yarn run export
+      - cp -r export/* /output
+    volumes:
+      - /opt/docker/static/blog:/output
