@@ -6,13 +6,10 @@ import { routes } from './manifest/server.js'
 import App from './App.html'
 
 polka() // You can also use Express
-  .use(
-    '/blog',
-    compression({ threshold: 0 }),
-    sirv('assets'),
-    sapper({ routes, App })
-  )
+  .use(compression({ threshold: 0 }))
+  .use('/blog', sirv('assets'))
+  .use('/blog', sapper({ routes, App }))
   .listen(process.env.PORT)
   .catch(err => {
-  console.log('error', err)
-})
+    console.log('error', err)
+  })
