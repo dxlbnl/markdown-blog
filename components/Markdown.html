@@ -11,13 +11,6 @@
   import frontmatter from 'front-matter'
   import MarkdownIt from 'markdown-it'
 
-  const source = `\
-# Hi
-- first
-
-- [ ] Does tis work?
-`
-
   const markdown = new MarkdownIt({
     html: true,
     linkify: true,
@@ -35,7 +28,12 @@
       }
     },
     data: () => ({
-      source
+      source: `\
+# Hi
+- first
+
+- [ ] Does tis work?
+`
     })
   }
 </script>

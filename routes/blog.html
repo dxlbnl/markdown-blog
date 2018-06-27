@@ -4,6 +4,12 @@
   export default {
     components: {
       Markdown: '../components/Markdown.html'
+    },
+    preload () {
+      return this.fetch('api').then(r => r.json()).then(res => {
+        console.log("Got res:", res)
+        return {res};
+      });
     }
   }
 </script>
