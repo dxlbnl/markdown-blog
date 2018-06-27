@@ -1,9 +1,11 @@
+
 pipeline:
   build:
     image: node:10-alpine
     commands:
       - yarn
-      - yarn run export
-      - cp -r export/* /output
+      - yarn run export --basepath blog/
+      - rm -rf /output/*
+      - cp -r export/blog/* /output
     volumes:
       - /opt/docker/static/blog:/output

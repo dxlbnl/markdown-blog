@@ -16,7 +16,7 @@
     "front-matter": "^2.3.0",
     "markdown-it": "^8.4.1",
     "polka": "^0.4.0",
-    "sapper": "^0.13.0",
+    "sapper": "^0.13.5",
     "sirv": "^0.1.1"
   },
   "devDependencies": {
