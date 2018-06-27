@@ -1,9 +1,22 @@
-<Markdown />
+<Markdown :source />
 
 <script>
+  const source = `\
+# Hi there
+I'm working on a SSG blog;
+- Powered by Sapper
+- Markdown files
+- CI edit flow
+- Inline edit capabilities
+
+It's going to be awesome :)
+`
   export default {
     components: {
       Markdown: '../components/Markdown.html'
-    }
+    },
+    data: () => ({
+      source
+    })
   }
 </script>
