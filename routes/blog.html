@@ -17,6 +17,12 @@ It's going to be awesome :)
     },
     data: () => ({
       source
-    })
+    }),
+    preload () {
+      return this.fetch('api').then(r => r.json()).then(res => {
+        console.log("Got res:", res)
+        return {res};
+      });
+    }
   }
 </script>
