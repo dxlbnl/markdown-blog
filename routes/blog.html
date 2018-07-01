@@ -1,4 +1,13 @@
-<Markdown :source />
+{#each posts as post}
+<h1>{post.metadata.title}</h1>
+<section>
+  {@html post.html}
+</section>
+<!-- <Markdown :source /> -->
+{:else}
+No posts
+{/each}
+
 
 <script>
   const source = `\
@@ -13,16 +22,22 @@ It's going to be awesome :)
 `
   export default {
     components: {
-      Markdown: '../components/Markdown.html'
+      // Markdown: '../components/Markdown.html'
     },
     data: () => ({
       source
     }),
     preload () {
-      return this.fetch('api').then(r => r.json()).then(res => {
-        console.log("Got res:", res)
-        return {res};
-      });
+      return this.fetch('api/blog')
+        .then(r => r.json())
+        .then(posts => {
+          console.log("Got posts:", posts)
+          return { posts };
+        })
+        .catch(e => {
+          console.log("Received error", e);
+          return e
+        })
     }
   }
 </script>
