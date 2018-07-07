@@ -1,0 +1,29 @@
+{#each posts as post}
+<h1>{post.metadata.title}</h1>
+<section>
+  {@html post.html}
+</section>
+<!-- <Markdown :source /> -->
+{:else}
+No posts
+{/each}
+
+
+<script>
+  export default {
+    components: {
+      // Markdown: '../components/Markdown.html'
+    },
+    async preload () {
+      try {
+        const res = await this.fetch('api/blog')
+        const posts = await res.json()
+        console.log("Got posts:", posts)
+        return { posts };
+      } catch (e) {
+        console.error("Received error", e);
+        return e
+      }
+    }
+  }
+</script>
