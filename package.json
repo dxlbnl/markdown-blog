@@ -30,7 +30,7 @@
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
     "postcss-preset-env": "^5.2.1",
-    "sapper": "^0.13.5",
+    "sapper": "^0.14.1",
     "sirv": "^0.1.1",
     "style-loader": "^0.21.0",
     "svelte": "^2.0.0",
