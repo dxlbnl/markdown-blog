@@ -5,6 +5,9 @@ yarn
 yarn run dev
 ```
 
+## TODO:
+- Post asset mgmt
+
 ## CI process
 
 ```bash
@@ -23,3 +26,14 @@ valid chars: a-zA-Z0-9-
 Master -> {name}.{domain}
 Branch -> {name}-{branch}.{domain}
 PR -> {name}-{pr}.{domain}
+
+
+# Dxlb.nl stuff
+
+## TODO: 
+- styling
+- fonts
+  - Lobstertwo
+  - Dosis
+  - Nice monospace font
+- Fontawesome

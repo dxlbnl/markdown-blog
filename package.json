@@ -9,20 +9,33 @@
     "start": "node build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "clean": "rm -rf node_modules export build yarn.lock .sapper"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0",
+    "@fortawesome/free-regular-svg-icons": "^5.1.0",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0",
+    "@fortawesome/pro-light-svg-icons": "^5.1.0",
+    "@fortawesome/pro-regular-svg-icons": "^5.1.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.1.0",
     "compression": "^1.7.1",
+    "css-loader": "^0.28.11",
+    "encoding": "^0.1.12",
     "front-matter": "^2.3.0",
     "highlight.js": "^9.12.0",
-    "markdown-it": "^8.4.1",
     "marked": "^0.4.0",
-    "polka": "^0.4.0",
-    "sapper": "^0.13.5",
-    "sirv": "^0.1.1"
-  },
-  "devDependencies": {
     "npm-run-all": "^4.1.2",
+    "polka": "^0.4.0",
+    "postcss": "^6.0.23",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-preset-env": "^5.2.1",
+    "sapper": "^0.13.5",
+    "sirv": "^0.1.1",
+    "style-loader": "^0.21.0",
     "svelte": "^2.0.0",
     "svelte-loader": "^2.9.0",
     "webpack": "^4.7.0"
