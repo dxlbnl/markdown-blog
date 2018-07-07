@@ -6,7 +6,7 @@ import { routes } from './manifest/server.js'
 import App from './App.html'
 
 polka() // You can also use Express
-  .use(
+  .use('/blog',
     compression({ threshold: 0 }),
     sirv('assets'),
     sapper({ routes, App })
