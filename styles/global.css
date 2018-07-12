@@ -1,5 +1,9 @@
  @import url('https://fonts.googleapis.com/css?family=Dosis:400,700|Inconsolata:400,700|Lobster+Two:400,700');
 
+@import 'tailwindcss/preflight';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
  main {
     font-family: 'Lobster Two', cursive;
     font-family: 'Inconsolata', monospace;
@@ -8,4 +12,14 @@
 
 :global(h1, h2, h3, h4, h5, h6) {
   font-family: 'Lobster Two'
+}
+
+.wrapper {
+    @apply .flex .items-center .mx-auto;
+}
+
+:global(.btn) {
+    @apply font-bold;
+    padding: .5rem 1rem!important;
+    border-radius: .25rem!important;
 }

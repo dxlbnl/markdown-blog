@@ -2,24 +2,19 @@ const path = require('path')
 const webpack = require('webpack')
 const config = require('sapper/webpack/config.js')
 
-const postcss = require('postcss')
-const postcssPresetEnv = require('postcss-preset-env')
-const postcssImport = require('postcss-import')
+const getPreprocessor = require('svelte-preprocess')
 
 const mode = process.env.NODE_ENV
 const isDev = mode === 'development'
 
+const preprocess = getPreprocessor({
+  transformers: {
+    postcss: true
+  }
+})
+
 const styleDir = path.resolve(__dirname, '../styles/')
 // const iconDir = path.resolve(__dirname, '../icons/')
-
-const postcssPlugins = [
-  postcssImport({
-    path: styleDir
-  }),
-  postcssPresetEnv({
-    stage: 0
-  })
-]
 
 module.exports = {
   entry: config.client.entry(),
@@ -41,16 +36,10 @@ module.exports = {
             dev: isDev,
             hydratable: true,
             hotReload: true,
-            preprocess: {
-              style: ({ content, attributes, filename }) => {
-                return postcss(postcssPlugins)
-                  .process(content, { from: filename })
-                  .then(result => {
-                    return { code: result.css, map: result.map }
-                  })
-                  .catch(err => {
-                    console.log('failed to preprocess style', err)
-                  })
+            preprocess,
+            onwarn: (warning, cont) => {
+              if (warning.code !== 'css-unused-selector') {
+                cont(warning)
               }
             }
           }
@@ -63,7 +52,6 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: postcssPlugins
             }
           }
         ]

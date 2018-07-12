@@ -9,12 +9,27 @@
 	<li>Built using sapper export</li>
 </ul>
 
+<button class="btn btn-orange">
+    Button
+</button>
+
 <figure>
 	<img alt='Borat' src='great-success.png'>
 	<figcaption>HIGH FIVE!</figcaption>
 </figure>
 
 <style>
+    @import 'tailwindcss/preflight';
+    @import 'tailwindcss/components';
+    @import 'tailwindcss/utilities';
+
+    .btn-orange {
+      @apply bg-orange text-white;
+    }
+    .btn-orange:hover {
+      @apply bg-green-dark;
+    }    
+
 	h1, figure {
 		text-align: center;
 		margin: 0 auto;
